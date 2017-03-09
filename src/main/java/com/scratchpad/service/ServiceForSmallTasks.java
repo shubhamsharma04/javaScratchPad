@@ -1,5 +1,7 @@
 package com.scratchpad.service;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,8 +12,19 @@ public class ServiceForSmallTasks {
 		for(String in : input){
 			System.out.println(Integer.parseInt(in,16));
 		}
+		ArrayList<Test> temporalRow = new ArrayList<Test>();
+		temporalRow.clear();
+		Test t = new Test();
+		t.i = 5;
+		temporalRow.add(t);
+		System.out.println(temporalRow.get(0).i);
+		t.i = 6;
+		System.out.println(temporalRow.get(0).i);
 	}
+		
+	
+}
 
-	
-	
+class Test {
+	public int i;
 }
