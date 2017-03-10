@@ -17,7 +17,7 @@ import com.scratchpad.dataformat.NNStat;
 public class ServiceImpl {
 
 	public void sortStats() throws IOException {
-		List<String> statsAsString = FileUtils.readLines(new File("/home/opensam/Downloads/statsfull.json"),
+		List<String> statsAsString = FileUtils.readLines(new File("statsfull.json"),
 				StandardCharsets.UTF_8);
 		List<NNStat> stats = new ArrayList<NNStat>();
 		ObjectMapper mapper = new ObjectMapper();
