@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Vector;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,105 @@ public class ServiceImpl {
 		for (NNStat stat : stats) {
 			System.out.println(stat.getAsJson(stat));
 		}
+	}
+
+	public void arrayHop() {
+		//int input [] = new int[] {2,3,1,1,2,4,2,0,1,1};
+		//int input [] = new int[] {5,6,0,4,2,4,1,0,0,4};
+		int input[] = new int[]{0,0,0};
+		/*int size = input.length;
+		int result = -1;
+		int [] dpArr = new int[size];
+		int [] pathArr = new int[size];
+		int numOfHops = 0;
+		for(int j=1;j<size;j++){
+			dpArr[j] = Integer.MAX_VALUE;
+		}
+		
+		for(int i = 0;i<size-1;i++){
+			numOfHops = 1 + dpArr[i];
+			for(int j=1;j<=numOfHops && i+j<size;j++){
+				//if(input[i]>=(j-i)){
+					if(numOfHops<dpArr[i+j]){
+						dpArr[i+j] = numOfHops;
+						pathArr[i+j] = i;
+					}
+				//} else {
+					//break;
+				//}
+			}
+		}
+		StringBuilder str = new StringBuilder();
+		str.reverse()
+		int pathIdex = size-1;
+		System.out.println(pathIdex);
+		while(pathIdex!=0){
+			System.out.println(pathArr[pathIdex]);
+			pathIdex = pathArr[pathIdex];
+		}
+		System.out.println( dpArr[size-1]);*/
+		int size = input.length;
+        int [] hopCountArr = new int[size];
+        int [] pathArr = new int[size];
+        for(int i=1;i<size;i++){
+            hopCountArr[i]=Integer.MAX_VALUE;
+        }
+        
+        for(int i=0;i<size-1;i++){
+            int numOfHops = hopCountArr[i] + 1;
+            int hopCapacity = input[i];
+            for(int j=1;j<=hopCapacity && i+j<size;j++){
+                if(numOfHops<hopCountArr[i+j]){
+                    hopCountArr[i+j] = numOfHops;
+                    pathArr[i+j] = i;
+                }
+            }
+        }
+        int pathIndex = size-1;
+        StringBuilder result = new StringBuilder();
+        result.append("out");
+        result.append(",");
+        result.append(pathIndex);
+        while(pathIndex!=0){
+        result.append(",");
+        result.append(pathArr[pathIndex]);
+        pathIndex =  pathArr[pathIndex];   
+        }
+        System.out.println(result.reverse().toString());
+	}
+
+	public void breakString() {
+		String str = "NC43-EB2;49.21716;-122.667252;49.216757;-122.666235";
+		// Will break str to "NC43-EB2" and "49.21716" "-122.667252" "49.216757" "-122.666235"
+		String [] allValues = str.split(";", -1);
+		String [] nameValuePair = allValues[0].split("-");
+		// substring selects only the specified portion of string 
+		String name = nameValuePair[0].substring(1, 4);
+		
+		// Since "49.21716" is of type String, we may need it to parse it to data type double if we want to do operations like numeric operations
+		double c1 = 0d;
+		try {
+		c1 = Double.parseDouble(allValues[1]);
+		} catch (NumberFormatException e) {
+			// TODO: Take corrective measures or simply log the error
+		}
+	}
+
+	public void exceptionTest() {
+		int numOfAvds = 5;
+		 for (int i = 0; i < numOfAvds; i++) {
+            
+                 try {
+                     System.out.println("i : "+i);
+                     if(i==2){
+                     throw new Exception();
+                     }
+                 } catch (Exception e) {
+                    e.printStackTrace();
+                    
+                 } 
+         }
+		
 	}
 
 }
