@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class ReadStupidLogsService {
 
 	public void getInconsisLogs() {
-		File file = new File("/media/opensam/Acad/UB/Spring2017Courses/DS/PA2B/sys37");
+		File file = new File("sys37");
 		List<String> list = new ArrayList<String>();
 		try {
 			list = FileUtils.readLines(file, StandardCharsets.UTF_8);
