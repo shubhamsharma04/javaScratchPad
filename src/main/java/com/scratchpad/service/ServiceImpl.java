@@ -33,40 +33,8 @@ public class ServiceImpl {
 	}
 
 	public void arrayHop() {
-		//int input [] = new int[] {2,3,1,1,2,4,2,0,1,1};
-		//int input [] = new int[] {5,6,0,4,2,4,1,0,0,4};
 		int input[] = new int[]{0,0,0};
-		/*int size = input.length;
-		int result = -1;
-		int [] dpArr = new int[size];
-		int [] pathArr = new int[size];
-		int numOfHops = 0;
-		for(int j=1;j<size;j++){
-			dpArr[j] = Integer.MAX_VALUE;
-		}
 		
-		for(int i = 0;i<size-1;i++){
-			numOfHops = 1 + dpArr[i];
-			for(int j=1;j<=numOfHops && i+j<size;j++){
-				//if(input[i]>=(j-i)){
-					if(numOfHops<dpArr[i+j]){
-						dpArr[i+j] = numOfHops;
-						pathArr[i+j] = i;
-					}
-				//} else {
-					//break;
-				//}
-			}
-		}
-		StringBuilder str = new StringBuilder();
-		str.reverse()
-		int pathIdex = size-1;
-		System.out.println(pathIdex);
-		while(pathIdex!=0){
-			System.out.println(pathArr[pathIdex]);
-			pathIdex = pathArr[pathIdex];
-		}
-		System.out.println( dpArr[size-1]);*/
 		int size = input.length;
         int [] hopCountArr = new int[size];
         int [] pathArr = new int[size];
