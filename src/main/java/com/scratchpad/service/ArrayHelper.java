@@ -1,5 +1,8 @@
 package com.scratchpad.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ArrayHelper {
 	
 	public static void process(){
@@ -10,6 +13,12 @@ public class ArrayHelper {
 	      System.out.println(getRandomElement(arr));
 	      String [] output = getRandomArray(size, stockElements);
 	      printArrayQuantities(output);
+	      // HASHMAP null test
+	      Map<String,String> map = new HashMap<String,String>();
+	      map.put("test", null);
+	      // String split test;
+	      String test = "a,b,c";
+	      System.out.println(test.split(",",2)[1]);
 	}
 	
 	 public static void printArrayQuantities(String[] arr){
