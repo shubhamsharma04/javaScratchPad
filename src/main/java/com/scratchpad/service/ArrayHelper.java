@@ -19,6 +19,12 @@ public class ArrayHelper {
 	      // String split test;
 	      String test = "a,b,c";
 	      System.out.println(test.split(",",2)[1]);
+	      String a = "a";
+	      String b = "b";
+	      System.out.println(b.compareTo(a));
+	      a = "";
+	      String [] temp = a.split(",");
+	      System.out.println(temp.length);
 	}
 	
 	 public static void printArrayQuantities(String[] arr){
