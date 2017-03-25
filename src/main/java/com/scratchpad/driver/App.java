@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.scratchpad.service.ServiceForSmallTasks;
+import com.scratchpad.service.ArrayHelper;
+import com.scratchpad.service.ReadStupidLogsService;
 
 public class App {
 	
@@ -21,7 +22,13 @@ public class App {
 		twitterStreamingService.twitterStreamingService();*/
 		
 		//ServiceImpl serviceImpl = (ServiceImpl) context.getBean("serviceImpl");
-		
+		//serviceImpl.arrayHop();
+		//serviceImpl.breakString();
+		//serviceImpl.exceptionTest();
+		/*Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			Integer.parseInt("");//sc.nextInt();
+		}*/
 		/*try {
 			serviceImpl.sortStats();
 		} catch (IOException e) {
@@ -31,7 +38,11 @@ public class App {
 		//PriorityQImplService priorityQImplService = (PriorityQImplService) context.getBean("priorityQImplService");
 		//priorityQImplService.process();
 		
-		ServiceForSmallTasks serviceForSmallTasks = (ServiceForSmallTasks) context.getBean("serviceForSmallTasks");
-		serviceForSmallTasks.convertHexToInt();
+		//ServiceForSmallTasks serviceForSmallTasks = (ServiceForSmallTasks) context.getBean("serviceForSmallTasks");
+		//serviceForSmallTasks.convertHexToInt();
+		
+		//ReadStupidLogsService readStupidLogsService = (ReadStupidLogsService) context.getBean("readStupidLogsService");
+		//readStupidLogsService.getInconsisLogs();
+		ArrayHelper.process();
 	}
 }
