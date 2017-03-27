@@ -25,6 +25,8 @@ public class ArrayHelper {
 	      a = "";
 	      String [] temp = a.split(",");
 	      System.out.println(temp.length);
+	      StringBuilder s=new StringBuilder("abcd");
+	      s.deleteCharAt(0);
 	}
 	
 	 public static void printArrayQuantities(String[] arr){
