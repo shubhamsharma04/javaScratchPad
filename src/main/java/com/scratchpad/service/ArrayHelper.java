@@ -27,6 +27,8 @@ public class ArrayHelper {
 	      System.out.println(temp.length);
 	      StringBuilder s=new StringBuilder("abcd");
 	      s.deleteCharAt(0);
+	      final String sample = "F5824B    C2112-----201801201510*00 ";
+	      System.out.println(sample.substring(8, 10));
 	}
 	
 	 public static void printArrayQuantities(String[] arr){
