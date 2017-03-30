@@ -4,7 +4,7 @@ import com.scratchpad.dataformat.TreeNode;
 
 public class BSTHelper {
 
-	private static final int[] input = new int[] { 20, 1, 2, 1, -9, -2, 0, 11, 2, 6, 5, 7 };
+	private static final int[] input = new int[] { 3, 1, 2, 1, -9, -2, 0, 11, 2, 6, 5, 7 };
 	private static final int length = input.length;
 	private static TreeNode root = null;
 
@@ -37,6 +37,21 @@ public class BSTHelper {
 			}
 		}
 		return root;
+	}
+
+	public void getHeight() {
+		int height = findHeight(root);
+		System.out.println("Height is : " + height);
+	}
+
+	private int findHeight(TreeNode root) {
+		if (root == null) {
+			return 0;
+		} else {
+			int lHeight = findHeight(root.getlChild());
+			int rHeight = findHeight(root.getrChild());
+			return Math.max(lHeight, rHeight) + 1;
+		}
 	}
 
 }
