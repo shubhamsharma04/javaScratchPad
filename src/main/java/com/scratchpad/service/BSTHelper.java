@@ -54,4 +54,19 @@ public class BSTHelper {
 		}
 	}
 
+	public void checkIfBalanced() {
+		boolean isBalanced = checkIfBalanced(root);
+		System.out.println("Is Tree Balanced : "+isBalanced);
+	}
+
+	// TODO : Check if Tree is balanced
+	private boolean checkIfBalanced(TreeNode root) {
+		if(root==null){
+			return true;
+		} else {
+			
+		}
+		return false;
+	}
+
 }
