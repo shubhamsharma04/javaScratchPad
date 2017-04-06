@@ -20,6 +20,9 @@ public class ServiceForSmallTasks {
 		System.out.println(temporalRow.get(0).i);
 		t.i = 6;
 		System.out.println(temporalRow.get(0).i);
+		String digitsWithOutComma = "1000";
+		StringBuilder str = new StringBuilder(digitsWithOutComma);
+		str.setCharAt(1, ',');
 	}
 		
 	
