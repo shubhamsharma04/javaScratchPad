@@ -1,6 +1,8 @@
 package com.scratchpad.service;
 
 import java.util.ArrayList;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
 
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,7 @@ public class ServiceForSmallTasks {
 		String digitsWithOutComma = "1000";
 		StringBuilder str = new StringBuilder(digitsWithOutComma);
 		str.setCharAt(1, ',');
+		Queue<String> q = new ArrayBlockingQueue<String>(100);
 	}
 		
 	
