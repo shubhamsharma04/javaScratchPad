@@ -3,10 +3,15 @@ package com.scratchpad.service;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Formatter;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Vector;
+import java.util.Scanner;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
@@ -97,6 +102,53 @@ public class ServiceImpl {
                  } 
          }
 		
+	}
+	
+	public void genHash(String input) throws NoSuchAlgorithmException {
+		MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
+		byte[] sha1Hash = sha1.digest(input.getBytes());
+		Formatter formatter = new Formatter();
+		for (byte b : sha1Hash) {
+		formatter.format("%02x", b);
+		}
+		System.out.println("input : "+input+" hash : "+formatter.toString());
+		}
+	
+	public void truePalin(){
+		String input = "a35%`94bA";
+		input = input.replaceAll("[^a-zA-Z]", "");
+		input = input.toLowerCase();
+		input = "  ";
+		System.out.println(new StringBuilder(input).reverse().toString().equals(input));
+		//System.out.println(input);
+	}
+	
+	public void sortedList(){
+		//Scanner sc = new Scanner(System.in);
+		//String input = sc.nextLine();
+		String [] lengths = new String[]{"3","2"};
+		String _1 = "1 2 4";
+		String _2 = "4 5";
+		int firstLength = Integer.parseInt(lengths[0]);
+		int secondLength = Integer.parseInt(lengths[1]);
+		List<Integer> firstList = new ArrayList<Integer>();
+		List<Integer> secondList = new ArrayList<Integer>();
+		String [] firstInput = _1.split(" ");
+		for (int i = 0; i < firstLength; i++) {
+			firstList.add(Integer.parseInt(firstInput[i]));
+		}
+		String [] secondInput = _2.split(" ");
+		for (int i = 0; i < secondLength; i++) {
+			secondList.add(Integer.parseInt(secondInput[i]));
+		}
+		
+		List<Integer> output = new ArrayList<Integer>();
+		output.addAll(firstList);
+		output.addAll(secondList);
+		Collections.sort(output, Collections.reverseOrder());
+		for(Integer i : output){
+			System.out.println(i);
+		}
 	}
 
 }
