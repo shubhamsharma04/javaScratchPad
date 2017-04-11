@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.scratchpad.service.ArrayHelper;
-import com.scratchpad.service.ReadStupidLogsService;
+import com.scratchpad.service.LModelService;
+import com.scratchpad.service.ServiceForSmallTasks;
 
 public class App {
 	
@@ -38,11 +38,27 @@ public class App {
 		//PriorityQImplService priorityQImplService = (PriorityQImplService) context.getBean("priorityQImplService");
 		//priorityQImplService.process();
 		
-		//ServiceForSmallTasks serviceForSmallTasks = (ServiceForSmallTasks) context.getBean("serviceForSmallTasks");
-		//serviceForSmallTasks.convertHexToInt();
+		ServiceForSmallTasks serviceForSmallTasks = (ServiceForSmallTasks) context.getBean("serviceForSmallTasks");
+		serviceForSmallTasks.convertHexToInt();
 		
 		//ReadStupidLogsService readStupidLogsService = (ReadStupidLogsService) context.getBean("readStupidLogsService");
 		//readStupidLogsService.getInconsisLogs();
-		ArrayHelper.process();
+		//ArrayHelper.process();
+		//BSTHelper bSTHelper = new BSTHelper();
+		//bSTHelper.initailize();
+		//bSTHelper.getHeight();
+		//bSTHelper.checkIfBalanced();
+		//QDAMean.getMean();
+		LModelService.printModelsOutput();
+		/*ServiceImpl serviceImpl = new ServiceImpl();
+		int base = 5554;
+		for(int i=0;i<=8;i=i+2){
+			try {
+				serviceImpl.genHash(String.valueOf(base+i));
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			}
+		}*/
+		//serviceImpl.sortedList();
 	}
 }
