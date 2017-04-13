@@ -1,5 +1,7 @@
 package com.scratchpad.service;
 
+import java.io.File;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,25 +9,16 @@ package com.scratchpad.service;
  */
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.Map;
+
 import twitter4j.FilterQuery;
-import twitter4j.JSONObject;
-import twitter4j.Query;
-import twitter4j.QueryResult;
-import twitter4j.RateLimitStatus;
 import twitter4j.StallWarning;
 import twitter4j.Status;
 import twitter4j.StatusDeletionNotice;
 import twitter4j.StatusListener;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
 import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
-import twitter4j.auth.OAuth2Token;
 import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.json.DataObjectFactory;
 
@@ -81,19 +74,22 @@ public class TwitterStreaming{
                 .setOAuthConsumerKey("")
                 .setOAuthConsumerSecret("")
                 .setOAuthAccessToken("")
-                .setOAuthAccessTokenSecret("");
+                .setOAuthAccessTokenSecret("")
+                .setJSONStoreEnabled(true);
      
       
         
         
+        File file = new File("FF8Json.txt");
+        //file.getParentFile().mkdirs();
         
+        file = new File("FF8.txt");
+        //file.getParentFile().mkdirs();
         
         TwitterStream twitterStream = new TwitterStreamFactory(configurationBuilder.build()).getInstance();
           
          
-        TwitterStreaming.writer  = new PrintWriter("FF8Json.txt", "UTF-8"); 
-        //writer.flush();
-        TwitterStreaming.writer2  =new PrintWriter("FF8.txt", "UTF-8");
+        
         
        TwitterStreaming.count=0;
      
@@ -104,11 +100,27 @@ public class TwitterStreaming{
         listener = new StatusListener() {
             @Override
             public void onStatus(Status status) {
+            	try {
+					TwitterStreaming.writer  = new PrintWriter("FF8Json.txt", "UTF-8");
+					TwitterStreaming.writer2  =new PrintWriter("FF8.txt", "UTF-8");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+                //writer.flush();
+                
+            	
                 
                 TwitterStreaming.writer.println(DataObjectFactory.getRawJSON(status));
                 TwitterStreaming.writer2.println(status.getLang()+" - "+status.getText());
                 TwitterStreaming.count++;
                 System.out.println("Count - "+TwitterStreaming.count);
+                TwitterStreaming.writer.close();
+                TwitterStreaming.writer2.close();
+                
                 
                 //To change body of generated methods, choose Tools | Templates.
             }
@@ -148,7 +160,10 @@ public class TwitterStreaming{
               twitterStream.filter(qry);
               
               
-              TwitterStreaming.writer.close();
-              TwitterStreaming.writer2.close();
+              System.out.println("here");
+              
+            //  TwitterStreaming.writer.close();
+              //TwitterStreaming.writer2.close();
+              System.out.println("here2");
 }
 }
