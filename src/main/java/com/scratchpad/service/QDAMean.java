@@ -45,7 +45,7 @@ public final class QDAMean {
 	            hi = mid - 1;
 	        }
 	    }
-	    return -1;
+	    return -20;
 	}
 
 }
