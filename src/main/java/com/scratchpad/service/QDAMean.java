@@ -27,5 +27,25 @@ public final class QDAMean {
 		
 		
 	}
+	
+	public static int bsearch(int[] arr, int key, int lo, int hi) {
+	    while (lo <= hi) {
+	        int mid = (lo + hi) / 2;
+	        if (arr[mid] == key) {
+	            System.out.println("The value " + key + " is found at " + mid);
+	            int higherResult = bsearch(arr, key, mid + 1, hi);
+	            if (higherResult < 0) {
+	                return mid;
+	            }
+	            return higherResult;
+	        }
+	        if (arr[mid] < key) {
+	            lo = mid + 1;
+	        } else {
+	            hi = mid - 1;
+	        }
+	    }
+	    return -1;
+	}
 
 }
