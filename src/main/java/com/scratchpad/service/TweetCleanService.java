@@ -77,10 +77,6 @@ public class TweetCleanService {
 								tweet = tweet.replaceAll(kaomoji.replaceAll("\\)", "\\\\)"), "");
 							} catch (Exception e) {
 								e.printStackTrace();
-								/*logger.error(e);
-								logger.debug(input);
-								logger.debug("Kaomoji : " + kaomoji);
-								logger.debug("Replaced Kaomoji : " + kaomoji.replaceAll("\\)", "\\\\)"));*/
 							}
 						} else if (kaomoji.contains("}")) {
 							tweet = tweet.replaceAll(kaomoji.replaceAll("\\}", "\\\\}"), "");
