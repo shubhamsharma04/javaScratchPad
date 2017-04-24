@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeMap;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,19 @@ public class ReadStupidLogsService {
 			}
 		}
 	}
+
+}
+
+class MapTest {
+
+    private static final TreeMap<String,String> map = new TreeMap<>();
+
+    public static final synchronized String get(String key){
+        return map.get(key);
+    }
+
+    public static final synchronized void put(String key,String value){
+         map.put(key,value);
+    }
 
 }
