@@ -56,20 +56,6 @@ public class TwitterStreaming{
 
     public static void main(String args[]) throws FileNotFoundException, UnsupportedEncodingException {
         ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
-        //configurationBuilder.setApplicationOnlyAuthEnabled(true);
-        
-        /*OAuth2Token Token = null;
-       
-            ConfigurationBuilder cb=new ConfigurationBuilder();
-            cb.setApplicationOnlyAuthEnabled(true);
-            cb.setOAuthConsumerKey("###############");
-            cb.setOAuthConsumerSecret("################################");
-        try{
-            Token = new TwitterFactory(cb.build()).getInstance().getOAuth2Token();
-        }catch(Exception e){
-            e.printStackTrace();
-        } */
-        
         configurationBuilder.setDebugEnabled(true)
                 .setOAuthConsumerKey("")
                 .setOAuthConsumerSecret("")
@@ -81,33 +67,21 @@ public class TwitterStreaming{
         
         
         File file = new File("FF8Json.txt");
-        //file.getParentFile().mkdirs();
-        
         file = new File("FF8.txt");
-        //file.getParentFile().mkdirs();
-        
         TwitterStream twitterStream = new TwitterStreamFactory(configurationBuilder.build()).getInstance();
           
-         
-        
-        
        TwitterStreaming.count=0;
      
-        //writer.println("hello :)");
-        //writer2.println("Check 123");
-        
         StatusListener listener;
         listener = new StatusListener() {
-            @Override
+        	@Override
             public void onStatus(Status status) {
             	try {
 					TwitterStreaming.writer  = new PrintWriter("FF8Json.txt", "UTF-8");
 					TwitterStreaming.writer2  =new PrintWriter("FF8.txt", "UTF-8");
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} 
                 //writer.flush();
@@ -134,7 +108,7 @@ public class TwitterStreaming{
             public void onTrackLimitationNotice(int i) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
-
+            
             @Override
             public void onScrubGeo(long l, long l1) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
