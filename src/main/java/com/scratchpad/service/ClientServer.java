@@ -12,7 +12,6 @@ public class ClientServer {
 	public void startServer() throws IOException {
        final ServerSocket listener = new ServerSocket(11111);
         Thread t = new Thread(new Runnable() {
-            @Override
             public void run() {
                 try {
                     String command = null;
