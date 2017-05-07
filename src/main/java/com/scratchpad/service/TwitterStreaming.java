@@ -34,15 +34,7 @@ public class TwitterStreaming{
     private static String tweetText;
     private static String tweetJSON;
     
-    
-    /*private static void  writetweet(String s){
-        writer2.println(s);
-    }
-    
-    private static void writeJson(String s){
-        writer.println(s);
-    } 
-    */
+  
     
     private static int countUp(){
         writer2.println(TwitterStreaming.tweetText);
