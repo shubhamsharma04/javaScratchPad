@@ -102,9 +102,6 @@ public class TweetCleanService {
 			}
 			
 			FileUtils.writeLines(outputFile, outputTweets, false);
-			
-			
-
 		}
 	}
 
