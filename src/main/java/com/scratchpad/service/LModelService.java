@@ -42,7 +42,7 @@ public class LModelService {
 		for(int i =0;i<logSize.length;i++){
 			double err = (double) (w1[0]+w1[1]*logSize[i]+w1[2]*dis[i]);
 			err = sigmoid(err);
-			System.out.printf(i+" : %f",err);//w1[0]+w1[1]*logSize[i]+w1[2]*dis[i]);
+			System.out.printf((i+1)+" : %f",err);//w1[0]+w1[1]*logSize[i]+w1[2]*dis[i]);
 			String result = Double.compare(err, 0.5d)>=0?"1":"0";
 			System.out.println(i+" : "+result);
 			
