@@ -7,9 +7,10 @@ public class GBalanceString {
 
 	public void balanceIt() {
 		String testString = "(ab()";
+		char fillhar = '\n';
 		int length = testString.length();
 		char [] output = new char[length];
-		Arrays.fill(output, '\n');
+		Arrays.fill(output, fillhar);
 		char openBraces = '(';
 		char closeBraces = ')';
 		Stack<Integer> stack = new Stack<Integer>();
@@ -25,7 +26,7 @@ public class GBalanceString {
 			}
 		}
 		for (int i = 0; i < length; i++) {
-			if(output[i]!='\n'){
+			if(output[i]!=fillhar){
 				System.out.print(output[i]);
 			}
 		}
