@@ -9,7 +9,7 @@ import java.util.TreeMap;
 public class GBalanceString {
 
 	public void balanceIt() {
-		String testString = "(ab()";
+		String testString = "()ab()";
 		char fillhar = '\n';
 		int length = testString.length();
 		char [] output = new char[length];
