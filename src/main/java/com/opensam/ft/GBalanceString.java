@@ -59,7 +59,34 @@ public class GBalanceString {
 			count++;
 		}
 	}
-	
-	
+
+	public void checkIfValidLott() {
+		int [] freq = new int[60];
+		freq[0] = 1;
+		boolean isValid = isValid("4938532894754",6,4,freq );
+		System.out.println("Is number valid : "+isValid);
+	}
+
+	private boolean isValid(String remainingNum, int remainingCount, int uniqueDigit, int[] freq) {
+		if(uniqueDigit<1 || uniqueDigit > 59 || remainingCount==0 || freq[uniqueDigit]==1){
+			return false;
+		} else if(remainingCount==1 && freq[uniqueDigit]==0 && remainingNum.length()<=2){
+			return true;
+		} else {
+			freq[uniqueDigit] = 1;
+			int length = remainingNum.length();
+			boolean isValidWithOne = false;
+			boolean isValidWithTwo = false;
+			if(uniqueDigit<10 && length>=2){
+				uniqueDigit = Integer.parseInt(remainingNum.substring(1, 2));
+				isValidWithOne = isValid(remainingNum.substring(1,length), remainingCount-1, uniqueDigit, freq);
+			}
+			if(uniqueDigit>10 && length>=3){
+				uniqueDigit = Integer.parseInt(uniqueDigit+""+remainingNum.substring(1, 2));
+				isValidWithTwo = isValid(remainingNum.substring(2,length), remainingCount-1, uniqueDigit, freq);
+			}
+			return isValidWithOne || isValidWithTwo;
+		}
+	}	
 
 }
