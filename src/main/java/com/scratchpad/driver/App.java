@@ -25,7 +25,7 @@ public class App {
 		ListNode second = new ListNode(1);
 		AddTwoLinkedList addTwoLinkedList = new AddTwoLinkedList();
 		ListNode result = addTwoLinkedList.addTwoNumbers(first, second);
-		while(result!=null){
+		while(result != null){
 			System.out.print(result.val+"  ");
 			result = result.next;
 		}
