@@ -1,5 +1,7 @@
 package com.opensam.ft;
 
+import java.util.Arrays;
+
 public class MaxArea {
 	
 	public int maxArea(int[] a) {
@@ -43,10 +45,7 @@ public class MaxArea {
                         sum = a[minIndex] * (i - maxIndex);
                     } else {
                         
-                        if(a[i] * (i - minIndex) > sum){
-                            maxIndex = i;
-                            sum = a[i] * (i - minIndex);
-                        }
+                    	return maxArea(Arrays.copyOf(a, i));
                         
                     }
                     
