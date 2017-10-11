@@ -24,6 +24,11 @@ public class MinPlatform {
 			}
 			
 			calculateMinimuPlatforms(avr,dep);
+			double a = Math.sqrt(20);
+			int b = (int)a;
+			if(a == b){
+				System.out.println("Yes");
+			}
 		}
 	}
 
